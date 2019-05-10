@@ -15,8 +15,6 @@ public class Livro {
     private int anoPublicacao;
     private String assunto;
     private BigDecimal precoVenda;
-    private BigDecimal precoAluguel;
-    private BigDecimal precoRenovacaoAluguel;
     private boolean isNacional;
     private int quantidade;
 
@@ -82,22 +80,6 @@ public class Livro {
 
     public void setPrecoVenda(BigDecimal precoVenda) {
         this.precoVenda = precoVenda;
-    }
-
-    public BigDecimal getPrecoAluguel() {
-        return precoAluguel;
-    }
-
-    public void setPrecoAluguel(BigDecimal precoAluguel) {
-        this.precoAluguel = precoAluguel;
-    }
-
-    public BigDecimal getPrecoRenovacaoAluguel() {
-        return precoRenovacaoAluguel;
-    }
-
-    public void setPrecoRenovacaoAluguel(BigDecimal precoRenovacaoAluguel) {
-        this.precoRenovacaoAluguel = precoRenovacaoAluguel;
     }
 
     public boolean isNacional() {
