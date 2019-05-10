@@ -1,5 +1,6 @@
 package br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.controller;
 
+import br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.controller.dto.LivroDTO;
 import br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.model.Livro;
 import br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.repository.LivroRepository;
 import br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.service.LivroService;
@@ -30,8 +31,12 @@ public class LivroController {
     }
 
     @GetMapping ("/{id}")
-    public Livro buscaPor(@PathVariable Integer id) {
-        return livroService.buscaPor(id);
+    public LivroDTO buscaPor(@PathVariable Integer id) {
+        Livro livro = livroService.buscaPor(id);
+        LivroDTO livroDTO = new LivroDTO();
+        BeanUtils.copyProperties(livro, livroDTO);
+
+        return  livroDTO;
     }
 
     @DeleteMapping ("/{id}")
@@ -43,7 +48,7 @@ public class LivroController {
     @PutMapping ("/{id}")
     public Livro atualiza(@PathVariable Integer id, @RequestBody Livro livro) {
 
-        Livro livroSalva = this.buscaPor(id);
+        Livro livroSalva = livroService.buscaPor(id);
         BeanUtils.copyProperties(livro, livroSalva, "id");
         return  livroSalva;
     }

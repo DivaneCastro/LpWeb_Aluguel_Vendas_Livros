@@ -1,13 +1,10 @@
-package br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.model;
+package br.edu.ifma.dcomp.lpweb.aluguelvendaslivros.controller.dto;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "livro")
-public class Livro {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) //declarando o id como identificador da tabela
+public class LivroDTO {
     private int id;
     private String isbn;
     private String titulo;
